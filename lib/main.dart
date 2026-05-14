@@ -16,14 +16,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int currentPage = 0;
 
-  final List<Widget> pages = const [BerandaPage(), ProfilePage()];
+  // ❌ HAPUS const DI SINI
+  final List<Widget> pages = [BerandaPage(), ProfilePage()];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      // ✅ FIX CherryToast TANPA NGERUSAK NAVIGASI
+      // CherryToast safe
       builder: (context, child) {
         return Stack(children: [child!]);
       },

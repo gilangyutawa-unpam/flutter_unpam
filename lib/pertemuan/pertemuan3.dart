@@ -6,22 +6,7 @@ class Pertemuan3Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Pertemuan 3"),
-        backgroundColor: Colors.orange,
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ProdukForm()),
-            );
-          },
-          child: const Text("Buka Form Produk"),
-        ),
-      ),
-    );
+    // 🔥 LANGSUNG TAMPILKAN PRODUK FORM
+    return const ProdukForm();
   }
 }

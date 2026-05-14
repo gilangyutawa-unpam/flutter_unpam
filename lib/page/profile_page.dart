@@ -6,7 +6,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // 🔥 WAJIB Scaffold biar aman di navigation
+      backgroundColor: const Color(0xff0f0f0f),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -26,7 +26,9 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
 
-                // PROFILE IMAGE
+                // 🔥 overlay biar gelap elegan
+                Container(height: 220, color: Colors.black.withOpacity(0.4)),
+
                 Positioned(
                   bottom: -50,
                   left: 0,
@@ -37,14 +39,7 @@ class ProfilePage extends StatelessWidget {
                       height: 110,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 4),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 10,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
+                        border: Border.all(color: Colors.amber, width: 3),
                         image: const DecorationImage(
                           image: AssetImage('assets/images/fotprof.webp'),
                           fit: BoxFit.cover,
@@ -61,19 +56,23 @@ class ProfilePage extends StatelessWidget {
             // ================= NAME =================
             const Text(
               "Ibnu Gilang Yutawa",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
 
             const SizedBox(height: 5),
 
             const Text(
               "NIM: 241011701355",
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.white70),
             ),
 
             const Text(
               "Kelas: 04SIFE009",
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.white70),
             ),
 
             const SizedBox(height: 5),
@@ -81,10 +80,10 @@ class ProfilePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                Icon(Icons.location_on, size: 16, color: Colors.grey),
+                Icon(Icons.location_on, size: 16, color: Colors.amber),
                 Text(
                   " Tangerang, Indonesia",
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(color: Colors.white70),
                 ),
               ],
             ),
@@ -111,11 +110,16 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   Text(
                     "About Me",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                   SizedBox(height: 10),
                   Text(
                     "Saya adalah mahasiswa aktif Universitas Pamulang jurusan Sistem Informasi. Saya adalah progammer begginer yang sedang belajar Mobile Programing.",
+                    style: TextStyle(color: Colors.white70),
                   ),
                 ],
               ),
@@ -124,17 +128,31 @@ class ProfilePage extends StatelessWidget {
             // ================= INFO =================
             Padding(
               padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Information",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  _infoItem(Icons.email, "gilangyutawa13@example.com"),
-                  _infoItem(Icons.phone, "+62 81210602028"),
-                  _infoItem(Icons.cake, "May 13, 2001"),
-                ],
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xff1c1c1c),
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: Colors.white10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(12),
+                      child: Text(
+                        "Information",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    _infoItem(Icons.email, "gilangyutawa13@example.com"),
+                    _infoItem(Icons.phone, "+62 81210602028"),
+                    _infoItem(Icons.cake, "May 13, 2001"),
+                  ],
+                ),
               ),
             ),
 
@@ -161,6 +179,13 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.amber,
+                        foregroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                       onPressed: () {},
                       child: const Text("Edit Profile"),
                     ),
@@ -168,6 +193,10 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(width: 10),
                   Expanded(
                     child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(color: Colors.amber),
+                        foregroundColor: Colors.amber,
+                      ),
                       onPressed: () {},
                       child: const Text("Share"),
                     ),
@@ -186,10 +215,10 @@ class ProfilePage extends StatelessWidget {
   Widget _infoItem(IconData icon, String text) {
     return ListTile(
       leading: CircleAvatar(
-        backgroundColor: Colors.blue.withOpacity(0.1),
-        child: Icon(icon, color: Colors.blue),
+        backgroundColor: Colors.amber.withOpacity(0.2),
+        child: Icon(icon, color: Colors.amber),
       ),
-      title: Text(text),
+      title: Text(text, style: const TextStyle(color: Colors.white)),
     );
   }
 }
@@ -207,10 +236,15 @@ class _StatItem extends StatelessWidget {
       children: [
         Text(
           number,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.amber,
+          ),
         ),
         const SizedBox(height: 5),
-        Text(label, style: const TextStyle(color: Colors.grey)),
+        const Text(" ", style: TextStyle(height: 0)),
+        Text(label, style: const TextStyle(color: Colors.white70)),
       ],
     );
   }
@@ -225,8 +259,8 @@ class _ChipItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Chip(
-      label: Text(text),
-      backgroundColor: Colors.blue.withOpacity(0.1),
+      label: Text(text, style: const TextStyle(color: Colors.black)),
+      backgroundColor: Colors.amber,
     );
   }
 }
