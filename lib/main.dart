@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int currentPage = 0;
 
-  // ❌ HAPUS const DI SINI
+
   final List<Widget> pages = [BerandaPage(), ProfilePage()];
 
   @override

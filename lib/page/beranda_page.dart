@@ -4,7 +4,8 @@ import 'package:flutter_unpam/pertemuan/pertemuan4.dart';
 import 'package:flutter_unpam/pertemuan/list_page.dart';
 import 'package:flutter_unpam/pertemuan/pertemuan6.dart';
 import 'package:flutter_unpam/pertemuan/pertemuan7.dart';
-import 'package:flutter_unpam/pertemuan/pertemuan8.dart'; // WAJIB ADA
+import 'package:flutter_unpam/pertemuan/pertemuan8.dart';
+import 'package:flutter_unpam/pertemuan/pertemuan9.dart'; // TAMBAH INI
 
 class BerandaPage extends StatelessWidget {
   BerandaPage({super.key});
@@ -18,6 +19,7 @@ class BerandaPage extends StatelessWidget {
     {"title": "Pertemuan 6"},
     {"title": "Pertemuan 7"},
     {"title": "Pertemuan 8"},
+    {"title": "Pertemuan 9"}, // TAMBAH INI
   ];
 
   void navigate(BuildContext context, String title) {
@@ -51,6 +53,11 @@ class BerandaPage extends StatelessWidget {
         context,
         MaterialPageRoute(builder: (context) => const Pertemuan8Page()),
       );
+    } else if (title == "Pertemuan 9") {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Pertemuan9Page()),
+      );
     } else {
       ScaffoldMessenger.of(
         context,
@@ -78,14 +85,17 @@ class BerandaPage extends StatelessWidget {
 
           return InkWell(
             onTap: () => navigate(context, item["title"]),
+
             child: Container(
               margin: const EdgeInsets.only(bottom: 15),
               padding: const EdgeInsets.all(18),
+
               decoration: BoxDecoration(
                 color: const Color(0xff1c1c1c),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: Colors.amber.withOpacity(0.2)),
               ),
+
               child: Row(
                 children: [
                   const CircleAvatar(
@@ -93,7 +103,9 @@ class BerandaPage extends StatelessWidget {
                     backgroundColor: Colors.amber,
                     child: Icon(Icons.menu_book, color: Colors.black),
                   ),
+
                   const SizedBox(width: 16),
+
                   Expanded(
                     child: Text(
                       item["title"],
@@ -104,6 +116,7 @@ class BerandaPage extends StatelessWidget {
                       ),
                     ),
                   ),
+
                   const Icon(
                     Icons.arrow_forward_ios,
                     size: 16,
