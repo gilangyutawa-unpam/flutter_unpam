@@ -5,7 +5,8 @@ import 'package:flutter_unpam/pertemuan/list_page.dart';
 import 'package:flutter_unpam/pertemuan/pertemuan6.dart';
 import 'package:flutter_unpam/pertemuan/pertemuan7.dart';
 import 'package:flutter_unpam/pertemuan/pertemuan8.dart';
-import 'package:flutter_unpam/pertemuan/pertemuan9.dart'; // TAMBAH INI
+import 'package:flutter_unpam/pertemuan/pertemuan9.dart';
+import 'package:flutter_unpam/pertemuan/pertemuan10.dart';
 
 class BerandaPage extends StatelessWidget {
   BerandaPage({super.key});
@@ -19,7 +20,8 @@ class BerandaPage extends StatelessWidget {
     {"title": "Pertemuan 6"},
     {"title": "Pertemuan 7"},
     {"title": "Pertemuan 8"},
-    {"title": "Pertemuan 9"}, // TAMBAH INI
+    {"title": "Pertemuan 9"},
+    {"title": "Pertemuan 10"},
   ];
 
   void navigate(BuildContext context, String title) {
@@ -58,6 +60,11 @@ class BerandaPage extends StatelessWidget {
         context,
         MaterialPageRoute(builder: (context) => const Pertemuan9Page()),
       );
+    } else if (title == "Pertemuan 10") {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Pertemuan10()),
+      );
     } else {
       ScaffoldMessenger.of(
         context,
@@ -79,7 +86,9 @@ class BerandaPage extends StatelessWidget {
 
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
+
         itemCount: items.length,
+
         itemBuilder: (context, index) {
           final item = items[index];
 
@@ -88,6 +97,7 @@ class BerandaPage extends StatelessWidget {
 
             child: Container(
               margin: const EdgeInsets.only(bottom: 15),
+
               padding: const EdgeInsets.all(18),
 
               decoration: BoxDecoration(
@@ -101,6 +111,7 @@ class BerandaPage extends StatelessWidget {
                   const CircleAvatar(
                     radius: 26,
                     backgroundColor: Colors.amber,
+
                     child: Icon(Icons.menu_book, color: Colors.black),
                   ),
 
@@ -109,6 +120,7 @@ class BerandaPage extends StatelessWidget {
                   Expanded(
                     child: Text(
                       item["title"],
+
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
