@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_unpam/page/beranda_page.dart';
 import 'package:flutter_unpam/page/profile_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const MyApp());
 }
 
@@ -15,7 +21,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int currentPage = 0;
-
 
   final List<Widget> pages = [BerandaPage(), ProfilePage()];
 

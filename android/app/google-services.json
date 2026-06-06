@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1020191933837",
+    "project_id": "flutter-unpam",
+    "storage_bucket": "flutter-unpam.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020191933837:android:062855ce9083e0433b69c4",
+        "android_client_info": {
+          "package_name": "com.example.flutter_unpam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOdFMrqvZlj5jm5FQu37osOtzLxb9v2tA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
